@@ -7,31 +7,52 @@
 
 
 #banner-container {
+    /*
     min-height: px;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    */
 }
 #banner-top{
-    background: url("./images/anthem-cropped.jpg");
+    height: 444px;
+    width: 474px;
+    overflow: hidden;
+}
+#image-top{
+    height: 444px;
+    width: 960px;
 }
 #banner-bottom{
     background: url("./images/willferrell-gamer-cropped.jpg");
-}
-#banner-top, #banner-bottom{
     height: 444px;
     width: 960px;
+}
+#banner-top, #banner-bottom{
     background-size: contain;
     position: absolute;
-    top:0;
+    top: 0;
+}
+#mask {
+    background-color: red;
+    width: 50px;
+    height: 444px;
+    left: 179px;
+    display: inline;
+    height: 200px;
 }
     </style>    
   </head>
   <body>
     <section id="banner-container">
-            <div id="banner-top"></div>
-            <div id="banner-bottom"></div>
+            <div id="banner-bottom">
+            </div>
+            <div id="banner-top">
+                    <div id="mask"></div>
+                    <img src="./images/anthem-cropped.jpg" #id="image-top" height="444px" width="960px"/>
+
+            </div>
       </section>
   </body>
 
