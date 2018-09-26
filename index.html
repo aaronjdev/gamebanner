@@ -13,25 +13,25 @@
     justify-content: center;
     align-items: center;
 }
-#banner-left{
+#banner-top{
     background: url("./images/anthem-cropped.jpg");
 }
-#banner-right{
+#banner-bottom{
     background: url("./images/willferrell-gamer-cropped.jpg");
-
 }
-#banner-left, #banner-right{
+#banner-top, #banner-bottom{
     height: 444px;
     width: 960px;
     background-size: contain;
+    position: absolute;
+    top:0;
 }
     </style>    
   </head>
   <body>
     <section id="banner-container">
-            <div id="banner-left">
-                <div id="banner-right"></div>
-            </div>
+            <div id="banner-top"></div>
+            <div id="banner-bottom"></div>
       </section>
   </body>
 
