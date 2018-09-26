@@ -14,15 +14,20 @@
     justify-content: center;
     align-items: center;
     */
+    height: 444px;
+    width: 960px;
+    overflow:hidden;
 }
 #banner-top{
     height: 444px;
     width: 474px;
     overflow: hidden;
 }
-#image-top{
+#banner-top img{
     height: 444px;
     width: 960px;
+
+    /*transform:rotate(-55deg);*/
 }
 #banner-bottom{
     background: url("./images/willferrell-gamer-cropped.jpg");
@@ -42,6 +47,12 @@
     display: inline;
     height: 200px;
 }
+#imgdiv{
+    height: 444px;
+    width: 480px;
+    /*transform:rotate(55deg);*/
+    overflow:hidden;
+}
     </style>    
   </head>
   <body>
@@ -50,12 +61,12 @@
             </div>
             <div id="banner-top">
                     <div id="mask"></div>
-                    <img src="./images/anthem-cropped.jpg" #id="image-top" height="444px" width="960px"/>
-
+                    <div id="imgdiv">
+                            <img src="./images/anthem-cropped.jpg" #id="image-top" height="444px" width="960px"/>
+                    </div>
             </div>
       </section>
   </body>
 
 
 </html>
-
