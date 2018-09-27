@@ -7,13 +7,13 @@
 
 
 #banner-container {
-    /*
+ 
     min-height: px;
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    */
+
     height: 444px;
     width: 960px;
     overflow:hidden;
@@ -23,18 +23,78 @@
     height: 444px;
     width: 960px;
     overflow: hidden;
-    clip-path: polygon(0% 0%, 80% 0%, 25% 100%, 0% 100%, 0% 0%);
+
 }
-#banner-top:hover{
-    clip-path: polygon(0% 0%, 95% 0%, 40% 100%, 0% 100%, 0% 0%);
+
+
+.top-mask{
+    clip-path: polygon(0% 0%, 80% 0%, 20% 100%, 0% 100%, 0% 0%);
 }
-#banner-bottom:hover{
-    clip-path: polygon(0% 0%, 65% 0%, 10% 100%, 0% 100%, 0% 0%);
+
+
+
+.slide-right{
+    animation-name: slide-right;
+    clip-path: polygon(0% 0%, 95% 0%, 35% 100%, 0% 100%, 0% 0%);
+    animation-duration: .5s;
 }
-#banner-top img{
-    height: 444px;
-    width: 960px;
+
+@keyframes slide-right {
+  from {
+    clip-path: polygon(0% 0%, 80% 0%, 20% 100%, 0% 100%, 0% 0%);
+  }
+  to {
+    clip-path: polygon(0% 0%, 95% 0%, 35% 100%, 0% 100%, 0% 0%);
+  }
 }
+
+.reset-left{
+    animation-name: reset-left;
+    clip-path: polygon(0% 0%, 80% 0%, 20% 100%, 0% 100%, 0% 0%);
+    animation-duration: .5s;
+}
+
+@keyframes reset-left {
+  from {
+    clip-path: polygon(0% 0%, 95% 0%, 35% 100%, 0% 100%, 0% 0%);
+
+  }
+  to {
+    clip-path: polygon(0% 0%, 80% 0%, 20% 100%, 0% 100%, 0% 0%);
+  }
+}
+
+.reset-right{
+    animation-name: reset-right;
+    clip-path: polygon(0% 0%, 80% 0%, 20% 100%, 0% 100%, 0% 0%);
+    animation-duration: .5s;
+}
+@keyframes reset-right {
+  from {
+    clip-path: polygon(0% 0%, 65% 0%, 5% 100%, 0% 100%, 0% 0%);
+  }
+  to {
+    clip-path: polygon(0% 0%, 80% 0%, 20% 100%, 0% 100%, 0% 0%);
+  }
+}
+
+
+.slide-left{
+    animation-name: slide-left;
+    clip-path: polygon(0% 0%, 65% 0%, 5% 100%, 0% 100%, 0% 0%);
+    animation-duration: .5s;
+}
+
+@keyframes slide-left {
+  from {
+    clip-path: polygon(0% 0%, 80% 0%, 20% 100%, 0% 100%, 0% 0%);
+  }
+  to {
+    clip-path: polygon(0% 0%, 65% 0%, 5% 100%, 0% 100%, 0% 0%);
+  }
+}
+
+
 #banner-bottom{
     background: url("./images/willferrell-gamer-cropped.jpg");
     height: 444px;
@@ -45,12 +105,7 @@
     position: absolute;
 
 }
-#imgdiv{
-    height: 444px;
-    width: 960px;
-    overflow:hidden;
-    clip-path: polygon(0% 0%, 70% 0%, 30% 100%, 0% 1000%, 0% 0%);
-}
+
 
     </style>    
   </head>
@@ -58,22 +113,42 @@
     <section id="banner-container">
             <div id="banner-bottom">
             </div>
-            <div id="banner-top">
+            <div id="banner-top" class="top-mask">
             </div>
       </section>
   </body>
 <script>
 
-//animate hovers
 
-
-//set click handlers to open
 (function(){
     const pElem = document.getElementById("banner-container");
+    const mask = document.getElementById("banner-top");
 	function makeHandler() {
 		pElem.addEventListener("click", function(e){			
-			console.log("hello " + e.target.id);
+			//console.log("hello " + e.target.id);
 		});
+
+		pElem.addEventListener("mouseover", function(e){			
+            if(e.target.id === "banner-bottom"){
+                mask.className = "slide-left";
+            }
+		});
+        pElem.addEventListener("mouseout", function(e){			
+            if(e.target.id === "banner-bottom"){
+                mask.className = "reset-right";
+            }
+		});
+        pElem.addEventListener("mouseover", function(e){			
+            if(e.target.id === "banner-top"){
+                mask.className = "slide-right";
+            }
+		});
+		pElem.addEventListener("mouseout", function(e){			
+            if(e.target.id === "banner-top"){
+                mask.className = "reset-left";
+            }
+		});
+
 	}
 makeHandler();
 }())
