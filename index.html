@@ -19,9 +19,17 @@
     overflow:hidden;
 }
 #banner-top{
+    background: url("./images/anthem-cropped.jpg");
     height: 444px;
     width: 960px;
     overflow: hidden;
+    clip-path: polygon(0% 0%, 80% 0%, 25% 100%, 0% 100%, 0% 0%);
+}
+#banner-top:hover{
+    clip-path: polygon(0% 0%, 95% 0%, 40% 100%, 0% 100%, 0% 0%);
+}
+#banner-bottom:hover{
+    clip-path: polygon(0% 0%, 65% 0%, 10% 100%, 0% 100%, 0% 0%);
 }
 #banner-top img{
     height: 444px;
@@ -40,7 +48,6 @@
 #imgdiv{
     height: 444px;
     width: 960px;
-
     overflow:hidden;
     clip-path: polygon(0% 0%, 70% 0%, 30% 100%, 0% 1000%, 0% 0%);
 }
@@ -52,13 +59,29 @@
             <div id="banner-bottom">
             </div>
             <div id="banner-top">
-                <div id=imgdiv>
-                    <img src="./images/anthem-cropped.jpg"  height="444px" width="960px"/>
-                </div>
-
             </div>
       </section>
   </body>
+<script>
 
+//animate hovers
+
+
+//set click handlers to open
+(function(){
+    const pElem = document.getElementById("banner-container");
+	function makeHandler() {
+		pElem.addEventListener("click", function(e){			
+			console.log("hello " + e.target.id);
+		});
+	}
+makeHandler();
+}())
+
+//set click handlers to close
+
+
+
+</script>
 
 </html>
