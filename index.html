@@ -131,23 +131,19 @@
 		pElem.addEventListener("mouseover", function(e){			
             if(e.target.id === "banner-bottom"){
                 mask.className = "slide-left";
+            }else if(e.target.id === "banner-top"){
+                mask.className = "slide-right";
             }
 		});
         pElem.addEventListener("mouseout", function(e){			
             if(e.target.id === "banner-bottom"){
                 mask.className = "reset-right";
-            }
-		});
-        pElem.addEventListener("mouseover", function(e){			
-            if(e.target.id === "banner-top"){
-                mask.className = "slide-right";
-            }
-		});
-		pElem.addEventListener("mouseout", function(e){			
-            if(e.target.id === "banner-top"){
+            }else if(e.target.id === "banner-top"){
                 mask.className = "reset-left";
             }
 		});
+
+
 
 	}
 makeHandler();
