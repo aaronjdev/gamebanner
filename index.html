@@ -25,75 +25,141 @@
     overflow: hidden;
 
 }
-
+h2{
+    display: flex;
+    font-size: xx-large;
+    color: whitesmoke;
+    text-shadow: 2px 1px 5px #000000;
+    align-items: center;
+}
 
 .top-mask{
-    clip-path: polygon(0% 0%, 80% 0%, 20% 100%, 0% 100%, 0% 0%);
+    clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
 }
 
 
 
 .slide-right{
     animation-name: slide-right;
-    clip-path: polygon(0% 0%, 95% 0%, 35% 100%, 0% 100%, 0% 0%);
+    clip-path: polygon(0% 0%, 98% 0%, 37% 100%, 0% 100%, 0% 0%);
     animation-duration: .5s;
 }
 
 @keyframes slide-right {
   from {
-    clip-path: polygon(0% 0%, 80% 0%, 20% 100%, 0% 100%, 0% 0%);
+    clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
   }
   to {
-    clip-path: polygon(0% 0%, 95% 0%, 35% 100%, 0% 100%, 0% 0%);
+    clip-path: polygon(0% 0%, 98% 0%, 37% 100%, 0% 100%, 0% 0%);
   }
 }
 
+
+.open-right{
+    animation-name: open-right;
+    clip-path: polygon(0% 0%, 175% 0%, 100% 100%, 0% 100%, 0% 0%);
+    animation-duration: .5s;
+}
+
+@keyframes open-right {
+  from {
+    clip-path: polygon(0% 0%, 98% 0%, 37% 100%, 0% 100%, 0% 0%);
+  }
+  to {
+    clip-path: polygon(0% 0%, 175% 0%, 100% 100%, 0% 100%, 0% 0%);
+  }
+}
+
+
 .reset-left{
     animation-name: reset-left;
-    clip-path: polygon(0% 0%, 80% 0%, 20% 100%, 0% 100%, 0% 0%);
+    clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
     animation-duration: .5s;
 }
 
 @keyframes reset-left {
   from {
-    clip-path: polygon(0% 0%, 95% 0%, 35% 100%, 0% 100%, 0% 0%);
+    clip-path: polygon(0% 0%, 98% 0%, 33% 100%, 0% 100%, 0% 0%);
 
   }
   to {
-    clip-path: polygon(0% 0%, 80% 0%, 20% 100%, 0% 100%, 0% 0%);
+    clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
   }
 }
 
 .reset-right{
     animation-name: reset-right;
-    clip-path: polygon(0% 0%, 80% 0%, 20% 100%, 0% 100%, 0% 0%);
+    clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
     animation-duration: .5s;
 }
 @keyframes reset-right {
   from {
-    clip-path: polygon(0% 0%, 65% 0%, 5% 100%, 0% 100%, 0% 0%);
+    clip-path: polygon(0% 0%, 68% 0%, 3% 100%, 0% 100%, 0% 0%);
   }
   to {
-    clip-path: polygon(0% 0%, 80% 0%, 20% 100%, 0% 100%, 0% 0%);
+    clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
   }
 }
 
 
 .slide-left{
     animation-name: slide-left;
-    clip-path: polygon(0% 0%, 65% 0%, 5% 100%, 0% 100%, 0% 0%);
+    clip-path: polygon(0% 0%, 68% 0%, 3% 100%, 0% 100%, 0% 0%);
     animation-duration: .5s;
 }
 
 @keyframes slide-left {
   from {
-    clip-path: polygon(0% 0%, 80% 0%, 20% 100%, 0% 100%, 0% 0%);
+    clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
   }
   to {
-    clip-path: polygon(0% 0%, 65% 0%, 5% 100%, 0% 100%, 0% 0%);
+    clip-path: polygon(0% 0%, 68% 0%, 3% 100%, 0% 100%, 0% 0%);
   }
 }
 
+.open-left{
+    animation-name: open-left;
+    clip-path: polygon(0% 0%, 0% 0%, -60% 100%, 0% 100%, 0% 0%);
+    animation-duration: .5s;
+}
+
+@keyframes open-left {
+  from {
+    clip-path: polygon(0% 0%, 65% 0%, 5% 100%, 0% 100%, 0% 0%);
+  }
+  to {
+    clip-path: polygon(0% 0%, 0% 0%, -60% 100%, 0% 100%, 0% 0%);
+  }
+}
+
+.reveal{
+    opacity:1;
+    animation-duration: 1s;
+    animation-name: reveal;
+}
+@keyframes reveal {
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+
+
+.conceal{
+    opacity:0;
+    animation-duration: 1s;
+    animation-name: conceal;
+}
+@keyframes conceal {
+  from {
+    opacity:1;
+  }
+  to {
+    opacity:0;
+  }
+}
 
 #banner-bottom{
     background: url("./images/willferrell-gamer-cropped.jpg");
@@ -103,6 +169,9 @@
 #banner-top, #banner-bottom{
     background-size: contain;
     position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 
 }
 
@@ -112,8 +181,10 @@
   <body>
     <section id="banner-container">
             <div id="banner-bottom">
+                <h2 class="conceal">Will Ferrel</h2>
             </div>
             <div id="banner-top" class="top-mask">
+                <h2 class="conceal">Anthem</h2>
             </div>
       </section>
   </body>
@@ -123,33 +194,50 @@
 (function(){
     const pElem = document.getElementById("banner-container");
     const mask = document.getElementById("banner-top");
-	function makeHandler() {
+    const messageRight = document.getElementById("banner-bottom").querySelector("h2");
+    const messageLeft = mask.querySelector("h2");
+	function makeHandler(){
 		pElem.addEventListener("click", function(e){			
-			//console.log("hello " + e.target.id);
+            if(e.target.id === "banner-bottom"){
+                mask.className = "open-left";
+            }else if(e.target.id === "banner-top"){
+                mask.className = "open-right";
+            }else if(e.target.id === ""){
+
+            }else if(e.target.id === ""){
+
+            }
+
 		});
 
 		pElem.addEventListener("mouseover", function(e){			
             if(e.target.id === "banner-bottom"){
                 mask.className = "slide-left";
+                //make text appear
+                messageRight.className = "reveal";
             }else if(e.target.id === "banner-top"){
                 mask.className = "slide-right";
+                //make text appear
+                messageLeft.className = "reveal";
             }
 		});
         pElem.addEventListener("mouseout", function(e){			
             if(e.target.id === "banner-bottom"){
                 mask.className = "reset-right";
+                messageRight.className = "conceal";
             }else if(e.target.id === "banner-top"){
                 mask.className = "reset-left";
+                messageLeft.className = "conceal";
             }
 		});
 
+//todo: suspend event listeners
 
+//todo: make reset buttons
 
 	}
 makeHandler();
 }())
-
-//set click handlers to close
 
 
 
