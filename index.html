@@ -201,7 +201,7 @@ h2 a{
     const mask = document.getElementById("banner-top");
     const messageRight = document.getElementById("banner-bottom").querySelector("h2");
     const messageLeft = mask.querySelector("h2");
-	function makeHandler(){
+
 		pElem.addEventListener("click", function(e){			
             if(e.target.id === "banner-bottom"){
                 mask.className = "open-left";
@@ -212,10 +212,24 @@ h2 a{
             }else if(e.target.id === ""){
 
             }
-
+            pElem.removeEventListener("mouseover", mouseOver );
+            pElem.removeEventListener("mouseout", mouseOut );
 		});
 
-		pElem.addEventListener("mouseover", function(e){	
+		pElem.addEventListener("mouseover", mouseOver,false);
+        pElem.addEventListener("mouseout", mouseOut,false);
+
+
+        function mouseOut(e) {
+            if(e.target.id === "banner-bottom"  || e.target.id === "bottomtext"){
+                mask.className = "reset-right";
+                messageRight.className = "conceal";
+            }else if(e.target.id === "banner-top" || e.target.id === "toptext"){
+                mask.className = "reset-left";
+                messageLeft.className = "conceal";
+            }
+        }
+        function mouseOver(e){	
             console.log(e.target.id);		
             if(e.target.id === "banner-bottom"  || e.target.id === "bottomtext"){
                 mask.className = "slide-left";
@@ -226,23 +240,14 @@ h2 a{
                 //make text appear
                 messageLeft.className = "reveal";
             }
-		});
-        pElem.addEventListener("mouseout", function(e){	
-            if(e.target.id === "banner-bottom"  || e.target.id === "bottomtext"){
-                mask.className = "reset-right";
-                messageRight.className = "conceal";
-            }else if(e.target.id === "banner-top" || e.target.id === "toptext"){
-                mask.className = "reset-left";
-                messageLeft.className = "conceal";
-            }
-		});
+		}
 
 //todo: suspend event listeners
 
 //todo: make reset buttons
 
-	}
-makeHandler();
+	
+
 }())
 
 
