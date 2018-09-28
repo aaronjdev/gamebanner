@@ -186,10 +186,10 @@ h2 a{
   <body>
     <section id="banner-container">
             <div id="banner-bottom">
-                <h2 id="bottomtext" class="hidden"><a href="#">Will Ferrel</a></h2>
+                <h2 id="bottomtext" class="hidden"><a id="bottomlink" href="#">Will Ferrel</a></h2>
             </div>
             <div id="banner-top" class="top-mask">
-                <h2 id="toptext" class="hidden"><a href="#">Anthem</a></h2>
+                <h2 id="toptext" class="hidden"><a id="toplink" href="#">Anthem</a></h2>
             </div>
       </section>
   </body>
@@ -201,48 +201,50 @@ h2 a{
     const mask = document.getElementById("banner-top");
     const messageRight = document.getElementById("banner-bottom").querySelector("h2");
     const messageLeft = mask.querySelector("h2");
-
-		pElem.addEventListener("click", function(e){			
-            if(e.target.id === "banner-bottom"){
-                mask.className = "open-left";
-            }else if(e.target.id === "banner-top"){
-                mask.className = "open-right";
-            }else if(e.target.id === ""){
-
-            }else if(e.target.id === ""){
-
-            }
-            pElem.removeEventListener("mouseover", mouseOver );
-            pElem.removeEventListener("mouseout", mouseOut );
-		});
-
-		pElem.addEventListener("mouseover", mouseOver,false);
-        pElem.addEventListener("mouseout", mouseOut,false);
+    pElem.addEventListener("mouseover", mouseOver,false);
+    pElem.addEventListener("mouseout", mouseOut,false);
 
 
-        function mouseOut(e) {
-            if(e.target.id === "banner-bottom"  || e.target.id === "bottomtext"){
-                mask.className = "reset-right";
-                messageRight.className = "conceal";
-            }else if(e.target.id === "banner-top" || e.target.id === "toptext"){
-                mask.className = "reset-left";
-                messageLeft.className = "conceal";
-            }
+    pElem.addEventListener("click", function(e){			
+        if(e.target.id === "banner-bottom" || e.target.id === "bottomtext"){
+            console.log("clicked " + e.target.id)
+            mask.className = "open-left";
+        }else if(e.target.id === "banner-top" || e.target.id === "toptext"){
+            mask.className = "open-right";
+        }else if(e.target.id === ""){
+
+        }else if(e.target.id === ""){
+
         }
-        function mouseOver(e){	
-            console.log(e.target.id);		
-            if(e.target.id === "banner-bottom"  || e.target.id === "bottomtext"){
-                mask.className = "slide-left";
-                //make text appear
-                messageRight.className = "reveal";
-            }else if(e.target.id === "banner-top" || e.target.id === "toptext"){
-                mask.className = "slide-right";
-                //make text appear
-                messageLeft.className = "reveal";
-            }
-		}
+        pElem.removeEventListener("mouseover", mouseOver );
+        pElem.removeEventListener("mouseout", mouseOut );
+    });
 
-//todo: suspend event listeners
+
+
+
+    function mouseOut(e) {
+        if(e.target.id === "banner-bottom"  || e.target.id === "bottomtext" || e.target.id === "bottomlink"){
+            mask.className = "reset-right";
+            messageRight.className = "conceal";
+        }else if(e.target.id === "banner-top" || e.target.id === "toptext" || e.target.id === "toplink"){
+            mask.className = "reset-left";
+            messageLeft.className = "conceal";
+        }
+    }
+    function mouseOver(e){	
+        console.log(e.target.id);		
+        if(e.target.id === "banner-bottom"  || e.target.id === "bottomtext" || e.target.id === "bottomlink"){
+            mask.className = "slide-left";
+            //make text appear
+            messageRight.className = "reveal";
+        }else if(e.target.id === "banner-top" || e.target.id === "toptext" || e.target.id === "toplink"){
+            mask.className = "slide-right";
+            //make text appear
+            messageLeft.className = "reveal";
+        }
+    }
+
 
 //todo: make reset buttons
 
