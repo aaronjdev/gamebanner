@@ -5,15 +5,15 @@
     <title>banner</title>    
     <style type="text/css">
 
-
-#banner-container {
- 
-    min-height: px;
-    display:flex;
-    flex-direction: row;
-    justify-content: center;
+#container{
+    display: flex;
+    flex-direction: column;
     align-items: center;
-
+    overflow: hidden;
+}
+#banner-container {
+    display:flex;
+    justify-content: center;
     height: 444px;
     width: 960px;
     overflow:hidden;
@@ -28,6 +28,8 @@
 h2{
     display: flex;
     font-size: xx-large;
+    font-size: xx-large;
+    font-family: sans-serif;
     color: whitesmoke;
     text-shadow: 2px 1px 5px #000000;
     align-items: center;
@@ -179,19 +181,32 @@ h2 a{
     justify-content: center;
 
 }
-
+#reset{
+    z-index: 500;
+    top: 0px;
+    width: 100px;
+    font-size: x-large;
+    margin-left: auto;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    background-color: #bb02025e;
+}
 
     </style>    
   </head>
   <body>
-    <section id="banner-container">
-            <div id="banner-bottom">
-                <h2 id="bottomtext" class="hidden"><a id="bottomlink" href="#">Will Ferrel</a></h2>
-            </div>
-            <div id="banner-top" class="top-mask">
-                <h2 id="toptext" class="hidden"><a id="toplink" href="#">Anthem</a></h2>
-            </div>
-      </section>
+      <div id="container">
+        <section id="banner-container">
+                <button id="reset" class="hidden">reset</button>
+                <div id="banner-bottom">
+                    <h2 id="bottomtext" class="hidden"><a id="bottomlink" href="#">Will Ferrel</a></h2>
+                </div>
+                <div id="banner-top" class="top-mask">
+                    <h2 id="toptext" class="hidden"><a id="toplink" href="#">Anthem</a></h2>
+                </div>
+        </section>
+      </div>
   </body>
 <script>
 
@@ -199,6 +214,7 @@ h2 a{
 (function(){
     const pElem = document.getElementById("banner-container");
     const mask = document.getElementById("banner-top");
+    const reset = document.getElementById("reset");
     const messageRight = document.getElementById("banner-bottom").querySelector("h2");
     const messageLeft = mask.querySelector("h2");
     pElem.addEventListener("mouseover", mouseOver,false);
@@ -207,20 +223,33 @@ h2 a{
 
     pElem.addEventListener("click", function(e){			
         if(e.target.id === "banner-bottom" || e.target.id === "bottomtext"){
-            console.log("clicked " + e.target.id)
             mask.className = "open-left";
+            reset.className = "reveal";
+            pElem.removeEventListener("mouseover", mouseOver );
+            pElem.removeEventListener("mouseout", mouseOut );
         }else if(e.target.id === "banner-top" || e.target.id === "toptext"){
             mask.className = "open-right";
-        }else if(e.target.id === ""){
+            reset.className = "reveal";
+            pElem.removeEventListener("mouseover", mouseOver );
+            pElem.removeEventListener("mouseout", mouseOut );
+        }else if (e.target.id === "reset"){
+            reset.className = "conceal";
+            
+            console.log(mask.className)
+            if(mask.className === "open-right"){
+                mask.className = "reset-left";
+                messageLeft.className = "conceal";
+            }else{
+                mask.className = "reset-right";
+                messageRight.className = "conceal";
+            }
 
-        }else if(e.target.id === ""){
-
+        
+            pElem.addEventListener("mouseover", mouseOver );
+            pElem.addEventListener("mouseout", mouseOut );
         }
-        pElem.removeEventListener("mouseover", mouseOver );
-        pElem.removeEventListener("mouseout", mouseOut );
+
     });
-
-
 
 
     function mouseOut(e) {
@@ -232,22 +261,15 @@ h2 a{
             messageLeft.className = "conceal";
         }
     }
-    function mouseOver(e){	
-        console.log(e.target.id);		
+    function mouseOver(e){			
         if(e.target.id === "banner-bottom"  || e.target.id === "bottomtext" || e.target.id === "bottomlink"){
             mask.className = "slide-left";
-            //make text appear
             messageRight.className = "reveal";
         }else if(e.target.id === "banner-top" || e.target.id === "toptext" || e.target.id === "toplink"){
             mask.className = "slide-right";
-            //make text appear
             messageLeft.className = "reveal";
         }
     }
-
-
-//todo: make reset buttons
-
 	
 
 }())
