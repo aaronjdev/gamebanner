@@ -5,193 +5,194 @@
     <title>banner</title>    
     <style type="text/css">
 
-#container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-}
-#banner-container {
-    display:flex;
-    justify-content: center;
-    height: 444px;
-    width: 960px;
-    overflow:hidden;
-}
-#banner-top{
-    background: url("./images/anthem-cropped.jpg");
-    height: 444px;
-    width: 960px;
-    overflow: hidden;
+        #container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+        #banner-container {
+            display:flex;
+            justify-content: center;
+            height: 444px;
+            width: 960px;
+            overflow:hidden;
+        }
+        #banner-top{
+            background: url("./images/anthem-cropped.jpg");
+            height: 444px;
+            width: 960px;
+            overflow: hidden;
 
-}
-h2{
-    display: flex;
-    font-size: xx-large;
-    font-size: xx-large;
-    font-family: sans-serif;
-    color: whitesmoke;
-    text-shadow: 2px 1px 5px #000000;
-    align-items: center;
-}
-h2 a{
-    text-decoration: none;
-    color:white;
-}
-.top-mask{
-    clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
-}
-
-
-
-.slide-right{
-    animation-name: slide-right;
-    clip-path: polygon(0% 0%, 98% 0%, 37% 100%, 0% 100%, 0% 0%);
-    animation-duration: .5s;
-}
-
-@keyframes slide-right {
-  from {
-    clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
-  }
-  to {
-    clip-path: polygon(0% 0%, 98% 0%, 37% 100%, 0% 100%, 0% 0%);
-  }
-}
+        }
+        h2{
+            display: flex;
+            font-size: xx-large;
+            font-size: xx-large;
+            font-family: sans-serif;
+            color: whitesmoke;
+            text-shadow: 2px 1px 5px #000000;
+            align-items: center;
+        }
+        h2 a{
+            text-decoration: none;
+            color:white;
+        }
+        .top-mask{
+            clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
+        }
 
 
-.open-right{
-    animation-name: open-right;
-    clip-path: polygon(0% 0%, 175% 0%, 100% 100%, 0% 100%, 0% 0%);
-    animation-duration: .5s;
-}
 
-@keyframes open-right {
-  from {
-    clip-path: polygon(0% 0%, 98% 0%, 37% 100%, 0% 100%, 0% 0%);
-  }
-  to {
-    clip-path: polygon(0% 0%, 175% 0%, 100% 100%, 0% 100%, 0% 0%);
-  }
-}
+        .slide-right{
+            animation-name: slide-right;
+            clip-path: polygon(0% 0%, 98% 0%, 37% 100%, 0% 100%, 0% 0%);
+            animation-duration: .5s;
+        }
 
-
-.reset-left{
-    animation-name: reset-left;
-    clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
-    animation-duration: .5s;
-}
-
-@keyframes reset-left {
-  from {
-    clip-path: polygon(0% 0%, 98% 0%, 33% 100%, 0% 100%, 0% 0%);
-
-  }
-  to {
-    clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
-  }
-}
-
-.reset-right{
-    animation-name: reset-right;
-    clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
-    animation-duration: .5s;
-}
-@keyframes reset-right {
-  from {
-    clip-path: polygon(0% 0%, 68% 0%, 3% 100%, 0% 100%, 0% 0%);
-  }
-  to {
-    clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
-  }
-}
+        @keyframes slide-right {
+        from {
+            clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
+        }
+        to {
+            clip-path: polygon(0% 0%, 98% 0%, 37% 100%, 0% 100%, 0% 0%);
+        }
+        }
 
 
-.slide-left{
-    animation-name: slide-left;
-    clip-path: polygon(0% 0%, 68% 0%, 3% 100%, 0% 100%, 0% 0%);
-    animation-duration: .5s;
-}
+        .open-right{
+            animation-name: open-right;
+            clip-path: polygon(0% 0%, 175% 0%, 100% 100%, 0% 100%, 0% 0%);
+            animation-duration: .5s;
+        }
 
-@keyframes slide-left {
-  from {
-    clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
-  }
-  to {
-    clip-path: polygon(0% 0%, 68% 0%, 3% 100%, 0% 100%, 0% 0%);
-  }
-}
-
-.open-left{
-    animation-name: open-left;
-    clip-path: polygon(0% 0%, 0% 0%, -60% 100%, 0% 100%, 0% 0%);
-    animation-duration: .5s;
-}
-
-@keyframes open-left {
-  from {
-    clip-path: polygon(0% 0%, 65% 0%, 5% 100%, 0% 100%, 0% 0%);
-  }
-  to {
-    clip-path: polygon(0% 0%, 0% 0%, -60% 100%, 0% 100%, 0% 0%);
-  }
-}
-
-.reveal{
-    opacity:1;
-    animation-duration: 1s;
-    animation-name: reveal;
-}
-@keyframes reveal {
-  from {
-    opacity:0;
-  }
-  to {
-    opacity:1;
-  }
-}
+        @keyframes open-right {
+        from {
+            clip-path: polygon(0% 0%, 98% 0%, 37% 100%, 0% 100%, 0% 0%);
+        }
+        to {
+            clip-path: polygon(0% 0%, 175% 0%, 100% 100%, 0% 100%, 0% 0%);
+        }
+        }
 
 
-.conceal{
-    opacity:0;
-    animation-duration: 1s;
-    animation-name: conceal;
-}
-@keyframes conceal {
-  from {
-    opacity:1;
-  }
-  to {
-    opacity:0;
-  }
-}
-.hidden{
-    opacity:0;
-}
-#banner-bottom{
-    background: url("./images/willferrell-gamer-cropped.jpg");
-    height: 444px;
-    width: 960px;
-}
-#banner-top, #banner-bottom{
-    background-size: contain;
-    position: absolute;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+        .reset-left{
+            animation-name: reset-left;
+            clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
+            animation-duration: .5s;
+        }
 
-}
-#reset{
-    z-index: 500;
-    top: 0px;
-    width: 100px;
-    font-size: x-large;
-    margin-left: auto;
-    height: 50px;
-    border: none;
-    cursor: pointer;
-    background-color: #bb02025e;
-}
+        @keyframes reset-left {
+        from {
+            clip-path: polygon(0% 0%, 98% 0%, 33% 100%, 0% 100%, 0% 0%);
+
+        }
+        to {
+            clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
+        }
+        }
+
+        .reset-right{
+            animation-name: reset-right;
+            clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
+            animation-duration: .5s;
+        }
+        @keyframes reset-right {
+        from {
+            clip-path: polygon(0% 0%, 68% 0%, 3% 100%, 0% 100%, 0% 0%);
+        }
+        to {
+            clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
+        }
+        }
+
+
+        .slide-left{
+            animation-name: slide-left;
+            clip-path: polygon(0% 0%, 68% 0%, 3% 100%, 0% 100%, 0% 0%);
+            animation-duration: .5s;
+        }
+
+        @keyframes slide-left {
+        from {
+            clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
+        }
+        to {
+            clip-path: polygon(0% 0%, 68% 0%, 3% 100%, 0% 100%, 0% 0%);
+        }
+        }
+
+        .open-left{
+            animation-name: open-left;
+            clip-path: polygon(0% 0%, 0% 0%, -60% 100%, 0% 100%, 0% 0%);
+            animation-duration: .5s;
+        }
+
+        @keyframes open-left {
+        from {
+            clip-path: polygon(0% 0%, 65% 0%, 5% 100%, 0% 100%, 0% 0%);
+        }
+        to {
+            clip-path: polygon(0% 0%, 0% 0%, -60% 100%, 0% 100%, 0% 0%);
+        }
+        }
+
+        .reveal{
+            opacity:1;
+            animation-duration: 1s;
+            animation-name: reveal;
+        }
+        @keyframes reveal {
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+        }
+
+
+        .conceal{
+            opacity:0;
+            animation-duration: 1s;
+            animation-name: conceal;
+        }
+        @keyframes conceal {
+        from {
+            opacity:1;
+        }
+        to {
+            opacity:0;
+        }
+        }
+        .hidden{
+            opacity:0;
+        }
+        #banner-bottom{
+            background: url("./images/willferrell-gamer-cropped.jpg");
+            height: 444px;
+            width: 960px;
+        }
+        #banner-top, #banner-bottom{
+            background-size: contain;
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+        }
+        #reset{
+            z-index: 500;
+            top: 0px;
+            width: 100px;
+            font-size: x-large;
+            margin-left: auto;
+            height: 50px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            background-color: #bb02025e;
+        }
 
     </style>    
   </head>
@@ -235,7 +236,6 @@ h2 a{
         }else if (e.target.id === "reset"){
             reset.className = "conceal";
             
-            console.log(mask.className)
             if(mask.className === "open-right"){
                 mask.className = "reset-left";
                 messageLeft.className = "conceal";
