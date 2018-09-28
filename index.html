@@ -32,7 +32,10 @@ h2{
     text-shadow: 2px 1px 5px #000000;
     align-items: center;
 }
-
+h2 a{
+    text-decoration: none;
+    color:white;
+}
 .top-mask{
     clip-path: polygon(0% 0%, 83% 0%, 18% 100%, 0% 100%, 0% 0%);
 }
@@ -160,7 +163,9 @@ h2{
     opacity:0;
   }
 }
-
+.hidden{
+    opacity:0;
+}
 #banner-bottom{
     background: url("./images/willferrell-gamer-cropped.jpg");
     height: 444px;
@@ -181,10 +186,10 @@ h2{
   <body>
     <section id="banner-container">
             <div id="banner-bottom">
-                <h2 class="conceal">Will Ferrel</h2>
+                <h2 id="bottomtext" class="hidden"><a href="#">Will Ferrel</a></h2>
             </div>
             <div id="banner-top" class="top-mask">
-                <h2 class="conceal">Anthem</h2>
+                <h2 id="toptext" class="hidden"><a href="#">Anthem</a></h2>
             </div>
       </section>
   </body>
@@ -210,22 +215,23 @@ h2{
 
 		});
 
-		pElem.addEventListener("mouseover", function(e){			
-            if(e.target.id === "banner-bottom"){
+		pElem.addEventListener("mouseover", function(e){	
+            console.log(e.target.id);		
+            if(e.target.id === "banner-bottom"  || e.target.id === "bottomtext"){
                 mask.className = "slide-left";
                 //make text appear
                 messageRight.className = "reveal";
-            }else if(e.target.id === "banner-top"){
+            }else if(e.target.id === "banner-top" || e.target.id === "toptext"){
                 mask.className = "slide-right";
                 //make text appear
                 messageLeft.className = "reveal";
             }
 		});
-        pElem.addEventListener("mouseout", function(e){			
-            if(e.target.id === "banner-bottom"){
+        pElem.addEventListener("mouseout", function(e){	
+            if(e.target.id === "banner-bottom"  || e.target.id === "bottomtext"){
                 mask.className = "reset-right";
                 messageRight.className = "conceal";
-            }else if(e.target.id === "banner-top"){
+            }else if(e.target.id === "banner-top" || e.target.id === "toptext"){
                 mask.className = "reset-left";
                 messageLeft.className = "conceal";
             }
